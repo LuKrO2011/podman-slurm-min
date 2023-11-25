@@ -1,0 +1,48 @@
+= Minimal podman slurm configuration
+
+== Description
+
+This project contains a minimal slurm configuration and a Dockerfile that can be used to run a docker container using podman via slurm.
+
+== Usage
+
+To run the code in this project:
+
+1. Make sure you have the following installed:
+* podman
+* slurm
+2. Clone this repository
+
+    cd ~/projects
+    git clone https://github.com/LuKrO2011/podman-slurm-min.git
+
+3. Build the docker images using podman:
+
+    cd ~/projects/podman-slurm-min
+    podman --root=/local/$USER/podman pull docker.io/anibali/pytorch:2.0.1-cuda11.8-ubuntu22.04
+    podman --root=/local/$USER/podman build --tag min:1 -f ./Dockerfile .
+
+4. Create a tar file containing the docker image:
+
+    cd /scratch/$USER/
+    podman --root=/local/$USER/podman save min:1 > min1.tar
+
+5. Copy the run_podman_container.sh script to the directory containing the tar file after replacing TODO@fim.uni-passau.de with your email address:
+
+    cd ~/projects/podman-slurm-min
+    cp run_podman_container.sh /scratch/$USER/
+
+6. Submit the job to slurm:
+
+    cd /scratch/$USER/
+    sbatch run_podman_container.sh
+
+7. Check the status of the job:
+
+    scontrol show job JOBID
+
+8. Once the job is complete, check the output:
+
+    cat slurm-JOBID.out
+
+
