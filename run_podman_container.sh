@@ -47,7 +47,7 @@ podman \
     --rm \
     # -v "SOME_PATH/datasets:/datasets" \
     # -v "SOME_PATH/results:/eval/results/" \
-    --name "rc-container" \
+    --name "min-container" \
     "localhost/min:1" \
     python src/main.py
 
