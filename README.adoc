@@ -16,7 +16,14 @@ To run the code in this project:
     cd ~/projects
     git clone https://github.com/LuKrO2011/podman-slurm-min.git
 
-3. Build the docker images using podman:
+3. Get the docker image:
+
+a. Get the podman image from docker hub:
+
+    cd ~/projects/podman-slurm-min
+    docker pull lukro2011/min
+
+b. Alternatively, you can build the docker image yourself using podman:
 
     cd ~/projects/podman-slurm-min
     podman --root=/local/$USER/podman pull docker.io/anibali/pytorch:2.0.1-cuda11.8-ubuntu22.04
