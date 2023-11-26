@@ -18,7 +18,7 @@ To use this project, first, clone the repository and the get/build the podman im
 a. Get the podman image from docker hub:
 
     cd ~/projects/podman-slurm-min
-    podman pull docker.io/lukro2011/min:1
+    podman --root=/local/$USER/podman pull docker.io/lukro2011/min:1
 
 b. Alternatively, you can build the docker image yourself using podman:
 
